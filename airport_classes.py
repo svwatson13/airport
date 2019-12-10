@@ -4,6 +4,7 @@ class Humans():
         self.name = name
 
 class Passengers(Humans):
+    class_variable = []
     def __init__(self, name, passnum):
         self.name = name
         self.passnum = passnum

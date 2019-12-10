@@ -1,9 +1,10 @@
 from airport_classes import *
 passengers = []
-a = 0
+
 import time
 
 while True:
+    a = 0
     time.sleep(1.0)
     user_input = input('\nDo you wish to: \n1) Create a passenger \n2) Create a plane \n3) Make a flight \n4) List flights '
                        '\n5) Exit \nPlease choose a number: ')
@@ -57,9 +58,9 @@ while True:
                         a = 1
 
             elif info == 'n':
-                user_input = Flight()
+                user_input = Flight(flight)
                 print('\nThank you for adding a flight')
-                a = 1
+                b = 1
                 break
             else:
                 print('Invalid response')
