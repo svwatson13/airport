@@ -1,29 +1,49 @@
 from airport_classes import *
 import pytest
 
-# Test where method of class just returned Sam
+## SETUP
+
+passenger1 = Passengers('Sam', 2321)
+passenger2 = Passengers('John', 2345)
+
+## ASSERTIONS
+
+# Test where method of class and after comma is what appears if test fails
 def test_passname():
-    assert Passengers('Sam', 33212).name == 'Sam'
+    assert passenger1.name == 'Sam', 'Passenger 1 was not created'
+    assert passenger2.name == 'John', 'Passenger 2 is not called Dave'
 
-# Test where method of class returned self
-def test_passname2():
-    assert Passengers('Dave', 3223).name == 'Dave'
-
-# Test where method of class just returned the number
 def test_passPN():
-    assert Passengers('Roger', 2345).passnum == 2345
-
-# Test where method of class returned self
-def test_passPN2():
-    assert Passengers('John', 6712).passnum == 6712
+    assert passenger1.passnum == 2321, 'Passnumber not created'
+    assert passenger2.passnum == 2345, 'Passnumber incorrect'
 
 # Testing whether error 'TypeError' is produced when not enough arguments are passed into a class
 def test_error():
     with pytest.raises(TypeError):
         Passengers('Sam')
 
-try:
-    Sam = Passengers('Sam')
-except TypeError as error:
-    print('Whoops, looks like you missed something')
-    print(error)
+def test_plane():
+    new_plane = Planes('Bertha', 1234)
+    assert new_plane.planenum == 1234
+    assert new_plane.name == 'Bertha'
+
+def test_flight_creation():
+    new_flight = Flight()
+    # Testing that new_flight is a Flight object
+    assert isinstance(new_flight, Flight)
+
+def test_adding_details():
+    new_flight = Flight('Bertha', 'Kansas', 'London', 9871)
+    assert new_flight.name == 'Bertha'
+    assert new_flight.origin == 'Kansas'
+    assert new_flight.destination == 'London'
+
+def test_passenger_list():
+    new_flight = Flight('Bertha', 'Kansas', 'London', 9871)
+    new_flight.add_passengers('Sam') == 'Sam'
+    assert isinstance(passengers, list)
+    assert passengers[0] == 'Sam'
+
+
+
+

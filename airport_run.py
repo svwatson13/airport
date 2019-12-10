@@ -1,11 +1,13 @@
 from airport_classes import *
 passengers = []
-
+a = 0
+import time
 
 while True:
-    user_input = input('Do you wish to create a passenger (1), plane (2), flight (3) or exit (4) ')
+    time.sleep(1.0)
+    user_input = input('\nDo you wish to: \n1) Create a passenger \n2) Create a plane \n3) Make a flight \n4) Exit \nPlease choose a number: ')
     if user_input == '1':
-        passengername = input('Name of passenger ')
+        passengername = input('\nName of passenger ')
         passengernum = input('Passport Number of passenger ')
         if passengername == "" or passengernum == "":
             print('Error, you failed to enter a key piece of information')
@@ -15,7 +17,7 @@ while True:
             print(passengername.name, passengername.passnum)
     elif user_input == '2':
         while True:
-            plane = input('Name of plane ')
+            plane = input('\nName of plane ')
             planenum = input('Plane Number ')
             if plane == "" or planenum == "":
                 print('Error, you failed to enter a key piece of information')
@@ -25,16 +27,18 @@ while True:
                 print(plane.name, plane.planenum)
                 break
     elif user_input == '3':
-        flight = input('Whats your flight? ')
+        flight = input('\nWhats your flight? ')
         while True:
-            info = input(f'Do you want to add info to flight {flight}? (y/n)')
+            if a == 1:
+                break
+            info = input(f'\nDo you want to add info to flight {flight}? (y/n) ')
             if info == 'y':
                 origin = input('What is the origin? ')
                 destination = input('Where is it going? ')
                 planenum = input('What is the plane number ')
                 user_input = Flight(origin, destination, planenum)
                 while True:
-                    exit = input('Do you wish to add passnegers? (y/n) ')
+                    exit = input('Do you wish to add passengers? (y/n) ')
                     if exit == 'y':
                         while True:
                             user_input = input('Name of passenger to add (or type exit to quit): ')
@@ -44,17 +48,18 @@ while True:
                             else:
                                 passengers.append(user_input)
                     elif exit == 'n':
+                        print('\nThank you for adding a flight')
                         break
                     else:
                         print('Invalid response')
-                        continue
+                        a = 1
 
             elif info == 'n':
                 user_input = Flight()
+                continue
             else:
                 print('Invalid response')
                 continue
-
 
     elif user_input == '4':
         break

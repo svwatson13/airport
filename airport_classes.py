@@ -1,14 +1,12 @@
+passengers = []
 class Humans():
     def __init__(self, name):
         self.name = name
 
 class Passengers(Humans):
     def __init__(self, name, passnum):
-        super().__init__(name)
+        self.name = name
         self.passnum = passnum
-
-
-
 
 class Staff(Humans):
     def __init__(self, name):
@@ -21,26 +19,23 @@ class Aircraft():
 
 class Planes(Aircraft):
     def __init__(self, name, planenum):
-        super().__init__(name)
+        self.name = name
         self.planenum = planenum
 
-    def plane(self):
-        return self
-
-    def planenum(self):
-        return self
-
-
-class Helicopter(Aircraft):
-    def __init__(self):
-        super().__init__(name)
-        self.helinum = helinum
-
 class Flight():
-    def __init__(self, origin = 0, destination = 0, planenum = 0):
+    def __init__(self, name = 'None', origin = 'None', destination = 'None', planenum = 0):
+        self.name = name
         self.planenum = planenum
         self.origin = origin
         self.destination = destination
-    def list_of_passengers(self, passnum):
-        self.passengers.append(passnum)
+    def add_passengers(self, Passengers):
+        passengers.append(Passengers)
+    def add_origin(self, origin):
+        self.origin = origin
+    def add_destination(self, destination):
+        self.destination = destination
+    def add_plane(self, name):
+        self.name = name
+
+
 
