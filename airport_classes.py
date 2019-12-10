@@ -7,6 +7,7 @@ class Passengers(Humans):
     def __init__(self, name, passnum):
         self.name = name
         self.passnum = passnum
+        Passengers.class_variable.append(self)
 
 class Staff(Humans):
     def __init__(self, name):
@@ -23,11 +24,13 @@ class Planes(Aircraft):
         self.planenum = planenum
 
 class Flight():
+    class_variable = []
     def __init__(self, name = 'None', origin = 'None', destination = 'None', planenum = 0):
         self.name = name
         self.planenum = planenum
         self.origin = origin
         self.destination = destination
+        Flight.class_variable.append(self)
     def add_passengers(self, Passengers):
         passengers.append(Passengers)
     def add_origin(self, origin):

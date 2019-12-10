@@ -5,7 +5,8 @@ import time
 
 while True:
     time.sleep(1.0)
-    user_input = input('\nDo you wish to: \n1) Create a passenger \n2) Create a plane \n3) Make a flight \n4) Exit \nPlease choose a number: ')
+    user_input = input('\nDo you wish to: \n1) Create a passenger \n2) Create a plane \n3) Make a flight \n4) List flights '
+                       '\n5) Exit \nPlease choose a number: ')
     if user_input == '1':
         passengername = input('\nName of passenger ')
         passengernum = input('Passport Number of passenger ')
@@ -49,6 +50,7 @@ while True:
                                 passengers.append(user_input)
                     elif exit == 'n':
                         print('\nThank you for adding a flight')
+                        a = 1
                         break
                     else:
                         print('Invalid response')
@@ -56,12 +58,19 @@ while True:
 
             elif info == 'n':
                 user_input = Flight()
-                continue
+                print('\nThank you for adding a flight')
+                a = 1
+                break
             else:
                 print('Invalid response')
                 continue
-
     elif user_input == '4':
+        for i in Flight.class_variable:
+            print(i.name)
+
+
+
+    elif user_input == '5':
         break
     else:
         print('You didnt register a valid response')
