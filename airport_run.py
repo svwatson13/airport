@@ -5,6 +5,10 @@ import time
 
 while True:
     a = 0
+<<<<<<< HEAD
+=======
+    time.sleep(1.0)
+>>>>>>> 4c1f48ee1726f3594d134f10798273b4a2c66cd0
     user_input = input('\nDo you wish to: \n1) Create a passenger \n2) Create a plane \n3) Make a flight \n4) List flights '
                        '\n5) Exit \nPlease choose a number: ')
     if user_input == '1':
@@ -67,6 +71,12 @@ while True:
     elif user_input == '4':
         for i in Flight.class_variable:
             print(i.name)
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 4c1f48ee1726f3594d134f10798273b4a2c66cd0
     elif user_input == '5':
         break
     else:
