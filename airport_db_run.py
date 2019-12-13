@@ -9,10 +9,12 @@ while True:
     user_input = input('\nPlease select a sector: \n1) Passengers \n2) Flights \n3) Planes \nChoose a number: ')
     if user_input == '1':
         while True:
-            user_input1 = input('\nDo you wish to: \n1) Create a passenger \n2) Return to main menu \nChoose a number: ')
+            user_input1 = input('\nDo you wish to: \n1) Create a passenger \n2) Change passenger details \n3) Return to main menu \nChoose a number: ')
             if user_input1 == '1':
                 Passengers().add_passenger()
-            elif user_input1 == '2':
+            if user_input1 == '2':
+                Passengers().change_passenger()
+            elif user_input1 == '3':
                 break
     if user_input == '2':
         while True:

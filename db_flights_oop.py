@@ -33,7 +33,7 @@ class Flights(MSDBConnection):
             record = data.fetchone()
             if record is None:
                 break
-            print(f"\nID{record.flight_id}: {record.flight_name} \nPlane Name: {record.plane_number}"
+            print(f"\nID{record.flight_id}: {record.flight_name} \nPlane Number: {record.plane_number}"
                   f"\nFlights Details: {record.origin} --> {record.destination}\n")
             time.sleep(1)
     def add_passengers(self):
