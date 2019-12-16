@@ -1,5 +1,6 @@
 from db_connect import *
 import time
+
 class Passengers(MSDBConnection):
     def add_passenger(self):
         first_name = input('What is the first name of this passenger ').strip()
@@ -9,6 +10,9 @@ class Passengers(MSDBConnection):
                 f" values ('{first_name}','{last_name}', '{passport_number}')"
         self._MSDBConnection__sql_query(query)
         self._MSDBConnection__sql_commit()
+        print('Thank you for updating passenger info ')
+        time.sleep(1)
+
     def change_passenger(self):
         query = f"SELECT * FROM Passengers"
         data = self._MSDBConnection__sql_query(query)
@@ -36,6 +40,7 @@ class Passengers(MSDBConnection):
         self._MSDBConnection__sql_query(query)
         self._MSDBConnection__sql_commit()
         print('Thank you for updating passenger info')
+        time.sleep(1)
 
 
 

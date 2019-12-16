@@ -1,5 +1,6 @@
 from db_connect import *
 import time
+
 class Flights(MSDBConnection):
     def add_flight(self):
         flight_name = input('What is the flight name ').strip()
@@ -25,7 +26,6 @@ class Flights(MSDBConnection):
                 print('That is not a valid plane_number')
                 continue
 
-
     def list_flights(self):
         query = f"SELECT * FROM Flights"
         data = self._MSDBConnection__sql_query(query)
@@ -36,6 +36,17 @@ class Flights(MSDBConnection):
             print(f"\nID{record.flight_id}: {record.flight_name} \nPlane Number: {record.plane_number}"
                   f"\nFlights Details: {record.origin} --> {record.destination}\n")
             time.sleep(1)
+
+    def list_txt_flights(self):
+        query = f"SELECT * FROM Flights"
+        data = self._MSDBConnection__sql_query(query)
+        with open("Flights.txt", 'w+') as file_to_read:
+            while True:
+                record = data.fetchone()
+                if record is None:
+                    break
+                file_to_read.write(f"\nID{record.flight_id}: {record.flight_name} \nPlane Number: {record.plane_number} \nFlights Details: {record.origin} --> {record.destination}\n")
+
     def add_passengers(self):
         passport_number = input('What is their passport number? ').strip()
         while True:

@@ -1,5 +1,6 @@
 from db_connect import *
 import time
+
 class Planes(MSDBConnection):
     def add_plane(self):
         plane_name = input('What is the planes name ').strip()
@@ -13,7 +14,6 @@ class Planes(MSDBConnection):
             print('This plane has already been created')
         finally:
             print('Thank you')
-
 
     def list_planes(self):
         query = f"SELECT * FROM Planes"
